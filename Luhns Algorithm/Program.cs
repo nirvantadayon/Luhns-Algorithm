@@ -18,14 +18,20 @@ namespace Luhns_Algorithm
                 Console.WriteLine("Enter a credit card number, no dashes, and I will compute the validity of the format: ");
                 String ccNumber;
                 ccNumber = Console.ReadLine();
-                if (ValidateCard(ccNumber))
+                if (Validator.ValidateCard(ccNumber))
                 {
                     Console.WriteLine(ccNumber + " appears to be a valid format.");
-                } else {
+                }
+                else
+                {
                     Console.WriteLine("That number does not appear to be a valid format.");
                 }
             }
         }
+    }
+
+    public class Validator
+    {
         public static bool ValidateCard(String cardNumber)
         {
             try
@@ -52,7 +58,9 @@ namespace Luhns_Algorithm
 
                 // If a multiple of 10, card is valid
                 return (sum % 10 == 0);
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 return false;
             }
         }
